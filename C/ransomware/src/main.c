@@ -213,45 +213,34 @@ void encTest()
 {
     struct AES_ctx ctx;
 
-    uint8_t key[] = {
-        0x01,0x02,0x03,0x04,
-        0x04,0x03,0x02,0x01,
-        0x01,0x02,0x03,0x04,
-        0x04,0x03,0x02,0x01
-    };
+    uint8_t key[] = "aaaaaaaaaaaaaaaa";
+    uint8_t iv[]  = "bbbbbbbbbbbbbbbb";
+    // str must be multiple of 16 since there is no padding
+    uint8_t str[] = "m4ld3v is a nice opensrc project";
 
-    uint8_t iv[] = {
-        0x01,0x02,0x03,0x04,
-        0x04,0x03,0x02,0x01,
-        0x01,0x02,0x03,0x04,
-        0x07,0x07,0x07,0x07
-    };
-
-    uint8_t buf[] = {};
-
-    for (int i = 0; i < sizeof(buf); i++)
-    {
-        printf("%c", buf[i]);
+    printf("\n raw buffer \n");
+    for (int i = 0; i < 32; ++i) {
+        printf("%.2x", str[i]);
     }
-    printf("\n");
 
     AES_init_ctx_iv(&ctx, key, iv);
-    AES_CBC_encrypt_buffer(&ctx, buf, 4000);
+    AES_CBC_encrypt_buffer(&ctx, str, 32);
 
-    log_debug("sizeof(buf): %d", sizeof(buf));
+    printf("\n Encrypted buffer\n");
 
-    for (int i = 0; i < sizeof(buf); i++)
-    {
-        printf("%x", buf[i]);
+    for (int i = 0; i < 32; ++i) {
+        printf("%.2x", str[i]);
     }
-    printf("\n");
 
-    AES_CBC_decrypt_buffer(&ctx, buf, 4000);
+    printf("\n Decrypted buffer\n");
 
-    for (int i = 0; i < sizeof(buf); i++)
-    {
-        printf("%c", buf[i]);
+    AES_init_ctx_iv(&ctx, key, iv);
+    AES_CBC_decrypt_buffer(&ctx, str, 32);
+
+    for (int i = 0; i < 32; ++i) {
+        printf("%.2x", str[i]);
     }
+
     printf("\n");
 }
 
@@ -342,7 +331,7 @@ int main()
     log_add_fp(fp, LOG_DEBUG);
 #endif
 
-    //runRansom("/home/<USER>/test", false);
+    // runRansom("/home/<USER>/test", false);
     encTest();
 
     clock_t toc = clock();

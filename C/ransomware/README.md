@@ -5,8 +5,9 @@ More information about the project at: https://github.com/felipetarijon/m4ld3v
 
 ## Dependencies
 
-* <a href="https://github.com/rxi/log.c" target="_blank">log.c</a> to log stuff. It was cloned directly into libs/log and was added a custom CMakeLists.txt
-* <a href="https://github.com/kokke/tiny-AES-c" target="_blank">tiny-AES-c</a> to handle cryptography. It was cloned directly into libs/aes
+1) <a href="https://github.com/rxi/log.c" target="_blank">log.c</a> to log stuff. The version included in this project is a modified version that includes a CMakeLists.txt. There is no need to update it since it's already part of this project.
+
+2) <a href="https://github.com/kokke/tiny-AES-c" target="_blank">tiny-AES-c</a> to handle cryptography. It's already included in the CMakeLists.txt as an external library that is automatically cloned while building with cmake.
 
 ## Linux
 

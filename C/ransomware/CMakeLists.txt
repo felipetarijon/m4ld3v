@@ -17,9 +17,21 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
 # defines targets and sources
 add_subdirectory(src)
 
-# contains an "external" library we will link to
+# configuring dependencies
+ExternalProject_Add(aes
+  GIT_REPOSITORY "https://github.com/kokke/tiny-AES-c.git"
+  GIT_TAG "f06ac37fc31dfdaca2e0d9bec83f90d5663c319b"
+  PREFIX ${PROJECT_SOURCE_DIR}/libs/aes
+  UPDATE_COMMAND ""
+  INSTALL_COMMAND cmake --install . --prefix ${PROJECT_SOURCE_DIR}
+  PATCH_COMMAND "")
+
+ExternalProject_Get_Property(aes source_dir binary_dir)
+set(GTEST_INCLUDE_DIR ${source_dir}/googletest/include)
+set(GMOCK_INCLUDE_DIR ${source_dir}/googlemock/include)
+
+add_subdirectory(${source_dir} ${binary_dir})
 add_subdirectory(libs/log)
-add_subdirectory(libs/aes)
 
 # enable testing and define tests
 # enable_testing()
