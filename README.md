@@ -1,5 +1,5 @@
 # M4LD3V 
-M4lware D3velopment Framework FOR STUDYING PURPOSES
+M4lware D3velopment Framework **FOR STUDYING PURPOSES**
 
 ## About
 This project was created initially to practice my programming language skills focused on cybersecurity, malware analysis, and reverse engineering. It's currently in its initial phase of development, focused on Linux OS and C language, but in the (near?) future it's going to be expanded to other platforms and languages.
