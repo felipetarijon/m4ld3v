@@ -20,6 +20,7 @@ This project was created initially to practice my programming language skills fo
 | HTTP Requests | C        | Linux \| Windows    | C/snippets/http_requests |
 | List running processes | C        | Linux \| Windows    | C/snippets/list_running_processes |
 | Detect OS language | C        | Linux \| Windows    | C/snippets/system_language |
+| Directory listing | C        | Windows    | C/snippets/directory_listing |
 
 ### Studies
 
