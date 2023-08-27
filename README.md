@@ -34,7 +34,7 @@ This is for malware development courses/series and studies I may take along the 
 
 | Name | Language | Platform | Location     |
 |--------------|----------|----------|--------------|
-| Auto Start Execution | C        | Linux \| Windows    | C/techniques/T1547/001 |
+| Auto Start Execution | C        | Windows    | C/techniques/T1547/001 |
 
 **Why use M4lD3V?**
 * Build a custom malware sample to use during Red Team assessments.
